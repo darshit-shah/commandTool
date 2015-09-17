@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title id="pageTitle">Axiom Command Tool</title>
+    <meta name="fragment" content="!">
+</head>
+<body>
+    <style>
+        .command-list li
+        {
+            padding:3px;
+        }
+    </style>
+    <div id="content" style="">
+        <header class="header">    
+		    <div class="text_center">
+			    <a class="cursor" onclick="common_loadWebsite()">
+				    &nbsp;</a></div>
+        </header>
+        <div id="divContainer">
+            <div class="page clearfix">
+                <section class="marginRight10 light_border marginTop20 marginBottom20">
+                    <div class="content-header radius">
+                        <h6 class="width_50 left">
+                            Command tool</h6>                            
+                     </div>
+                     <div class="content-area clearfix">
+                        <div class="width_100 marginBottom10 clearfix">
+                            <label class="form-label"> Command </label>
+                            <textarea id="txtCommand" class="text_area marginTop5 width_70 left marginBottom20" cols="27" rows="3"></textarea>                            
+                            <input id="btnRunSingleCommand" class="green_small_but marginLeft10 marginTop10" type='button' value='Run' onclick="commandTool.runCommand($('#txtCommand').val(), '#txtOutput')" />
+                        </div>
+                        <div class="width_100 marginBottom10 clearfix">
+                            <label class="form-label"> List of Commands </label>
+                            <ul id="listOfCommands" class="left command-list" style="border:1px solid #ddd;margin:0;padding:10px;width:640px;min-height:200px;max-height:200px;overflow:auto;">
+                            
+                            </ul>
+                            <!--<input id="btnRunAllCommands" class="grey-button marginLeft10 marginTop10" type='button' value='Run all commands' onclick="commandTool.runAllCommands()" />-->
+                        </div>
+                        <div>
+                            Result
+                        </div>
+                        <div id="txtOutput" class="marginTop10" style="font-size:16px;font-family:Arial, Helvetica, sans-serif;padding:10px;border:1px solid #ddd;min-height:300px;overflow:auto;background-color:#f9f9f9;width:90%;max-height:500px">
+                            
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="jquery-1.7.2.min.js"></script>
+<script src="socket.io.min.js"></script>
+<script src="axiomWidget.js"></script>
+<script src="commandTool.js"></script>
+</html>

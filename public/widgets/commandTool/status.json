@@ -1,0 +1,23 @@
+[
+	{
+		"Name":"darshit-example.js",
+		"Check":"if ps ax | grep -v grep | grep \"node darshit-example.js\">/dev/null ; then echo \"Running\"; else echo \"Not Running\"; fi",
+		"Start":"cd /home/ubuntu/darshit/examples && nohup node darshit-example.js > /dev/null & ",
+		"Stop":"kill $(ps ax | grep -v grep | grep \"node darshit-example.js\" | awk '{print$1}')",
+		"Restart":"echo \"Do stop and start\""
+	},
+	{
+		"Name":"MySQL",
+		"Check":"sudo service mysql status",
+		"Start":"sudo service mysql start",
+		"Stop":"sudo service mysql stop",
+		"Restart":"sudo service mysql restart"
+	},
+	{
+        "Name":"InfiniDB",
+        "Check":"sudo service infinidb status",
+        "Start":"sudo service infinidb start",
+        "Stop":"sudo service infinidb stop",
+        "Restart":"sudo service infinidb restart"
+    }
+]

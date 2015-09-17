@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title id="pageTitle">Axiom Command Tool</title>
+    <meta name="fragment" content="!">
+    <script src="jquery-1.7.2.min.js"></script>
+		<script src="d3.min.js"></script>
+		<script src="socket.io.min.js"></script>
+		<script src="axiomWidget.js"></script>
+		<script src="commandTool.js"></script>
+    <script>
+    		$(document).ready(function () {
+    			commandTool.loadStatus();
+				});
+   	</script>
+</head>
+<body>
+    <table id="statusDiv" style="width:100%">
+    		<tr>
+    			<th>Name</th>
+    			<th>Status</th>
+    			<th>Start</th>
+    			<th>Stop</th>
+    			<th>Restart</th>
+    		</tr>
+    </table>
+</body>
+</html>
