@@ -18,6 +18,10 @@ commandTool = {
     completedCallback: function(){
         if(commandTool.currentIndex>=commandTool.list.length){
             // do nothing
+            setTimeout(function(){
+                commandTool.currentIndex = 0;
+                commandTool.completedCallback();
+            }, 10000);
         }
         else{
             $(commandTool.list[commandTool.currentIndex]).trigger('click');
@@ -26,7 +30,7 @@ commandTool = {
     },
     loadStatus: function () {
         // /widgets/commandTool/status.json
-        d3.json("/widgets/commandTool/status.json", function (error, json) {
+        d3.json("/ct/widgets/commandTool/status.json", function (error, json) {
             if (error)
                 return console.log(error);
             //console.log(json);
@@ -56,7 +60,6 @@ commandTool = {
                 li = $('<li>');
                 li.append('<a class="status">Status<a/>');
                 bindEvent(li.find('a'), x, "Check", ul.find('div.result'));
-                //
                 ul.append(li);
 
                 li = $('<li>');
@@ -73,6 +76,7 @@ commandTool = {
                 li.append('<a>Restart <a/>');
                 bindEvent(li.find('a'), x, "Restart", ul.find('div.result'));
                 ul.append(li);
+
                 $('#statusDiv').append(ul);
             }
             for (var i = 0; i < json.length; i++) {

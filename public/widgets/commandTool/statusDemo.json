@@ -1,0 +1,73 @@
+[
+	{
+		"Name":"darshit-example.js",
+		"Check":"{ if ps ax | grep -v grep | grep \"node darshit-example.js\">/dev/null ; then { echo \"Viraul Memory (MB)\"; ps aux | grep -v grep | grep \"node darshit-example.js\" | awk '{ hr=$5/1024 ; printf(\"%.0f MB\",hr) }'; } | sed -e 'N;s/\\n/ /' && { echo \"RSS (MB)\"; ps aux | grep -v grep | grep \"node darshit-example.js\" | awk '{ hr=$6/1024 ; printf(\"%.0f MB\",hr) }'; } | sed -e 'N;s/\\n/ /' && { echo \"Memory (Perc)\"; ps aux | grep -v grep | grep \"node darshit-example.js\" | awk '{print$4}'; } | sed -e 'N;s/\\n/ /' && { echo \"Processor (Perc)\"; ps aux | grep -v grep | grep \"node darshit-example.js\" | awk '{print$3}'; } | sed -e 'N;s/\\n/ /'; else echo \"Not Running\"; fi } ",
+		"Start":"TZ=\"/usr/share/zoneinfo/GMT+0\" && export TZ && cd /home/ubuntu/darshit/examples && nohup node darshit-example.js > /dev/null 2>&1 & echo \"Started\"",
+		"Stop":"sudo kill $(ps ax | grep -v grep | grep \"node darshit-example.js\" | awk '{print$1}') && echo \"Stopped\"",
+		"Restart":"echo \"Do stop and start\""
+	},
+	{
+		"Name":"LOGGER Engine",
+		"Check":"if ps ax | grep -v grep | grep \"node axiomLogger.js\">/dev/null ; then { echo \"Viraul Memory (MB)\"; ps aux | grep -v grep | grep \"node axiomLogger.js\" | awk '{ hr=$5/1024 ; printf(\"%.0f MB\",hr) }'; } | sed -e 'N;s/\\n/ /' && { echo \"RSS (MB)\"; ps aux | grep -v grep | grep \"node axiomLogger.js\" | awk '{ hr=$6/1024 ; printf(\"%.0f MB\",hr) }'; } | sed -e 'N;s/\\n/ /' && { echo \"Memory (Perc)\"; ps aux | grep -v grep | grep \"node axiomLogger.js\" | awk '{print$4}'; } | sed -e 'N;s/\\n/ /' && { echo \"Processor (Perc)\"; ps aux | grep -v grep | grep \"node axiomLogger.js\" | awk '{print$3}'; } | sed -e 'N;s/\\n/ /'; else echo \"Not Running\"; fi",
+		"Start":"TZ=\"/usr/share/zoneinfo/GMT+0\" && export TZ && cd /home/ubuntu/axiomDEMO/axiomdeployment_demo/axiomCore/application && nohup node axiomLogger.js > /dev/null 2>&1 & echo \"Started\"",
+		"Stop":"kill $(ps ax | grep -v grep | grep \"node axiomLogger.js\" | awk '{print$1}') && echo \"Stopped\"",
+		"Restart":"echo \"Do stop and start\""
+	},
+	{
+		"Name":"APP Engine (app.js)",
+		"Check":"if ps ax | grep -v grep | grep \"node app.js\">/dev/null ; then { echo \"Viraul Memory (MB)\"; ps aux | grep -v grep | grep \"node app.js\" | awk '{ hr=$5/1024 ; printf(\"%.0f MB\",hr) }'; } | sed -e 'N;s/\\n/ /' && { echo \"RSS (MB)\"; ps aux | grep -v grep | grep \"node app.js\" | awk '{ hr=$6/1024 ; printf(\"%.0f MB\",hr) }'; } | sed -e 'N;s/\\n/ /' && { echo \"Memory (Perc)\"; ps aux | grep -v grep | grep \"node app.js\" | awk '{print$4}'; } | sed -e 'N;s/\\n/ /' && { echo \"Processor (Perc)\"; ps aux | grep -v grep | grep \"node app.js\" | awk '{print$3}'; } | sed -e 'N;s/\\n/ /'; else echo \"Not Running\"; fi",
+		"Start":"TZ=\"/usr/share/zoneinfo/GMT+0\" && export TZ && cd /home/ubuntu/axiomDEMO/axiomdeployment_demo/axiomCore/application && nohup node app.js > /dev/null 2>&1 & echo \"Started\"",
+		"Stop":"kill $(ps ax | grep -v grep | grep \"node app.js\" | awk '{print$1}') && echo \"Stopped\"",
+		"Restart":"echo \"Do stop and start\""
+	},
+	{
+		"Name":"Notification Engine",
+		"Check":"if ps ax | grep -v grep | grep \"node notificationEngine.js\">/dev/null ; then { echo \"Viraul Memory (MB)\"; ps aux | grep -v grep | grep \"node notificationEngine.js\" | awk '{ hr=$5/1024 ; printf(\"%.0f MB\",hr) }'; } | sed -e 'N;s/\\n/ /' && { echo \"RSS (MB)\"; ps aux | grep -v grep | grep \"node notificationEngine.js\" | awk '{ hr=$6/1024 ; printf(\"%.0f MB\",hr) }'; } | sed -e 'N;s/\\n/ /' && { echo \"Memory (Perc)\"; ps aux | grep -v grep | grep \"node notificationEngine.js\" | awk '{print$4}'; } | sed -e 'N;s/\\n/ /' && { echo \"Processor (Perc)\"; ps aux | grep -v grep | grep \"node notificationEngine.js\" | awk '{print$3}'; } | sed -e 'N;s/\\n/ /'; else echo \"Not Running\"; fi",
+		"Start":"TZ=\"/usr/share/zoneinfo/GMT+0\" && export TZ && cd /home/ubuntu/axiomDEMO/axiomdeployment_demo/axiomCore/application && nohup node notificationEngine.js > /dev/null 2>&1 & echo \"Started\"",
+		"Stop":"kill $(ps ax | grep -v grep | grep \"node notificationEngine.js\" | awk '{print$1}') && echo \"Stopped\"",
+		"Restart":"echo \"Do stop and start\""
+	},
+	{
+		"Name":"Alert Engine",
+		"Check":"if ps ax | grep -v grep | grep \"node alertEngine.js\">/dev/null ; then { echo \"Viraul Memory (MB)\"; ps aux | grep -v grep | grep \"node alertEngine.js\" | awk '{ hr=$5/1024 ; printf(\"%.0f MB\",hr) }'; } | sed -e 'N;s/\\n/ /' && { echo \"RSS (MB)\"; ps aux | grep -v grep | grep \"node alertEngine.js\" | awk '{ hr=$6/1024 ; printf(\"%.0f MB\",hr) }'; } | sed -e 'N;s/\\n/ /' && { echo \"Memory (Perc)\"; ps aux | grep -v grep | grep \"node alertEngine.js\" | awk '{print$4}'; } | sed -e 'N;s/\\n/ /' && { echo \"Processor (Perc)\"; ps aux | grep -v grep | grep \"node alertEngine.js\" | awk '{print$3}'; } | sed -e 'N;s/\\n/ /'; else echo \"Not Running\"; fi",
+		"Start":"TZ=\"/usr/share/zoneinfo/GMT+0\" && export TZ && cd /home/ubuntu/axiomDEMO/axiomdeployment_demo/axiomCore/application && nohup node alertEngine.js > /dev/null 2>&1 & echo \"Started\"",
+		"Stop":"kill $(ps ax | grep -v grep | grep \"node alertEngine.js\" | awk '{print$1}') && echo \"Stopped\"",
+		"Restart":"echo \"Do stop and start\""
+	},
+	{
+		"Name":"iMapMail Engine",
+		"Check":"if ps ax | grep -v grep | grep \"node iMapMailEngine.js\">/dev/null ; then { echo \"Viraul Memory (MB)\"; ps aux | grep -v grep | grep \"node iMapMailEngine.js\" | awk '{ hr=$5/1024 ; printf(\"%.0f MB\",hr) }'; } | sed -e 'N;s/\\n/ /' && { echo \"RSS (MB)\"; ps aux | grep -v grep | grep \"node iMapMailEngine.js\" | awk '{ hr=$6/1024 ; printf(\"%.0f MB\",hr) }'; } | sed -e 'N;s/\\n/ /' && { echo \"Memory (Perc)\"; ps aux | grep -v grep | grep \"node iMapMailEngine.js\" | awk '{print$4}'; } | sed -e 'N;s/\\n/ /' && { echo \"Processor (Perc)\"; ps aux | grep -v grep | grep \"node iMapMailEngine.js\" | awk '{print$3}'; } | sed -e 'N;s/\\n/ /'; else echo \"Not Running\"; fi",
+		"Start":"TZ=\"/usr/share/zoneinfo/GMT+0\" && export TZ && cd /home/ubuntu/axiomDEMO/axiomdeployment_demo/axiomCore/application && nohup node iMapMailEngine.js > /dev/null 2>&1 & echo \"Started\"",
+		"Stop":"kill $(ps ax | grep -v grep | grep \"node iMapMailEngine.js\" | awk '{print$1}') && echo \"Stopped\"",
+		"Restart":"echo \"Do stop and start\""
+	},
+	{
+		"Name":"Import Engine",
+		"Check":"if ps ax | grep -v grep | grep \"node importEngine_flatFile.js\">/dev/null ; then { echo \"Viraul Memory (MB)\"; ps aux | grep -v grep | grep \"node importEngine_flatFile.js\" | awk '{ hr=$5/1024 ; printf(\"%.0f MB\",hr) }'; } | sed -e 'N;s/\\n/ /' && { echo \"RSS (MB)\"; ps aux | grep -v grep | grep \"node importEngine_flatFile.js\" | awk '{ hr=$6/1024 ; printf(\"%.0f MB\",hr) }'; } | sed -e 'N;s/\\n/ /' && { echo \"Memory (Perc)\"; ps aux | grep -v grep | grep \"node importEngine_flatFile.js\" | awk '{print$4}'; } | sed -e 'N;s/\\n/ /' && { echo \"Processor (Perc)\"; ps aux | grep -v grep | grep \"node importEngine_flatFile.js\" | awk '{print$3}'; } | sed -e 'N;s/\\n/ /'; else echo \"Not Running\"; fi",
+		"Start":"TZ=\"/usr/share/zoneinfo/GMT+0\" && export TZ && cd /home/ubuntu/axiomDEMO/axiomdeployment_demo/axiomCore/application && nohup node importEngine_flatFile.js > /dev/null 2>&1 & echo \"Started\"",
+		"Stop":"kill $(ps ax | grep -v grep | grep \"node importEngine_flatFile.js\" | awk '{print$1}') && echo \"Stopped\"",
+		"Restart":"echo \"Do stop and start\""
+	},
+	{
+		"Name":"Schedule Engine",
+		"Check":"if ps ax | grep -v grep | grep \"node scheduleEngine.js\">/dev/null ; then { echo \"Viraul Memory (MB)\"; ps aux | grep -v grep | grep \"node scheduleEngine.js\" | awk '{ hr=$5/1024 ; printf(\"%.0f MB\",hr) }'; } | sed -e 'N;s/\\n/ /' && { echo \"RSS (MB)\"; ps aux | grep -v grep | grep \"node scheduleEngine.js\" | awk '{ hr=$6/1024 ; printf(\"%.0f MB\",hr) }'; } | sed -e 'N;s/\\n/ /' && { echo \"Memory (Perc)\"; ps aux | grep -v grep | grep \"node scheduleEngine.js\" | awk '{print$4}'; } | sed -e 'N;s/\\n/ /' && { echo \"Processor (Perc)\"; ps aux | grep -v grep | grep \"node scheduleEngine.js\" | awk '{print$3}'; } | sed -e 'N;s/\\n/ /'; else echo \"Not Running\"; fi",
+		"Start":"TZ=\"/usr/share/zoneinfo/GMT+0\" && export TZ && cd /home/ubuntu/axiomDEMO/axiomdeployment_demo/axiomCore/application && nohup node scheduleEngine.js > /dev/null 2>&1 & echo \"Started\"",
+		"Stop":"kill $(ps ax | grep -v grep | grep \"node scheduleEngine.js\" | awk '{print$1}') && echo \"Stopped\"",
+		"Restart":"echo \"Do stop and start\""
+	},
+	{
+		"Name":"MySQL",
+		"Check":"sudo service mysql status && { echo \"Viraul Memory (MB)\"; ps aux | grep -v grep | grep \"/usr/sbin/mysqld\" | awk '{ hr=$5/1024 ; printf(\"%.0f MB\",hr) }'; } | sed -e 'N;s/\\n/ /' && { echo \"RSS (MB)\"; ps aux | grep -v grep | grep \"/usr/sbin/mysqld\" | awk '{ hr=$6/1024 ; printf(\"%.0f MB\",hr) }'; } | sed -e 'N;s/\\n/ /' && { echo \"Memory (Perc)\"; ps aux | grep -v grep | grep \"/usr/sbin/mysqld\" | awk '{print$4}'; } | sed -e 'N;s/\\n/ /' && { echo \"Processor (Perc)\"; ps aux | grep -v grep | grep \"/usr/sbin/mysqld\" | awk '{print$3}'; } | sed -e 'N;s/\\n/ /' && { echo \"Active Connections\"; echo \"show processlist\" | mysql -u root -pnode@123 | wc | awk '{print$1}'; } | sed -e 'N;s/\\n/ /';",
+		"Start":"sudo service mysql start",
+		"Stop":"sudo service mysql stop",
+		"Restart":"sudo service mysql restart"
+	},
+	{
+		"Name":"InfiniDB",
+		"Check":"sudo service infinidb status && { echo \"Viraul Memory (MB)\"; ps aux | grep -v grep | grep \"/usr/local/Calpont/mysql/libexec/mysqld\" | awk '{ hr=$5/1024 ; printf(\"%.0f MB\",hr) }'; } | sed -e 'N;s/\\n/ /' && { echo \"RSS (MB)\"; ps aux | grep -v grep | grep \"/usr/local/Calpont/mysql/libexec/mysqld\" | awk '{ hr=$6/1024 ; printf(\"%.0f MB\",hr) }'; } | sed -e 'N;s/\\n/ /' && { echo \"Memory (Perc)\"; ps aux | grep -v grep | grep \"/usr/local/Calpont/mysql/libexec/mysqld\" | awk '{print$4}'; } | sed -e 'N;s/\\n/ /' && { echo \"Processor (Perc)\"; ps aux | grep -v grep | grep \"/usr/local/Calpont/mysql/libexec/mysqld\" | awk '{print$3}'; } | sed -e 'N;s/\\n/ /' && { echo \"Active Connections\"; echo \"show processlist\" | /usr/local/Calpont/mysql/bin/mysql --defaults-file=/usr/local/Calpont/mysql/my.cnf -u root | wc | awk '{print$1}'; } | sed -e 'N;s/\\n/ /';",
+		"Start":"sudo service infinidb start",
+		"Stop":"sudo service infinidb stop",
+		"Restart":"sudo service infinidb restart"
+	}
+
+]

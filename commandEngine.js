@@ -52,8 +52,7 @@ process.on('exit', function () {
 
 app.get('/execCommand/:cmd?', function (req, res) {
     console.log([req.body, req.params, req.query]);
-
-    var strQuery = decodeURIComponent(req.params.cmd);
+    var strQuery = req.params.cmd;
     //console.log(strQuery);
     var arrOutput = [];
     fs.writeFileSync('myCommand.sh', strQuery);
@@ -98,7 +97,7 @@ app.post('/fileUpload', function (req, res) {
     var tmp_path = req.header('X-File-Name-Display');
     tmp_path = tmp_path;
     var target_path = '/tmp/' + tmp_path;
-    var stream = fs.createWriteStream(target_path);//, { flags: 'w', encoding: null, mode: 0666 }
+    var stream = fs.createWriteStream(target_path, { flags: 'w', encoding: null, mode: 0666 });
     req.on('data', function (data) {
         stream.write(data);
     });
@@ -110,6 +109,6 @@ app.post('/fileUpload', function (req, res) {
     });
 });
 
-app.listen(3012, function () {
+app.listen(3001, function () {
     console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 });
