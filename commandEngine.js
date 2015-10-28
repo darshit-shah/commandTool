@@ -13,10 +13,10 @@ app.configure(function () {
     app.use(express.session({ store: store, secret: 'Th!$!$$@mple', key: 'sid' })); //Th!$!$$@mple
     //app.use(app.router);
     app.use(function (req, res, next) {
-	if(req.url.substring(0,2)=="//")
-	{
-	    req.url = req.url.substring(1);
-	}
+    	if(req.url.substring(0,2)=="//")
+    	{
+    	    req.url = req.url.substring(1);
+    	}
         console.log(req.url);
         if (req.url.indexOf('/ct') == 0)
             req.url = req.url.substring(3);
@@ -30,8 +30,7 @@ app.configure(function () {
         else {
             res.sed('page not found');
         }
-    }
-    );
+    });
     app.use(express.static(__dirname + '/public'));
 });
 
@@ -93,9 +92,24 @@ app.get('/execCommand/:cmd?', function (req, res) {
         sh = null;
         spawn = null;
     });
-})
+});
+
+app.post('/fileUpload', function (req, res) {
+    var tmp_path = req.header('X-File-Name-Display');
+    tmp_path = tmp_path;
+    var target_path = '/tmp/' + tmp_path;
+    var stream = fs.createWriteStream(target_path);//, { flags: 'w', encoding: null, mode: 0666 }
+    req.on('data', function (data) {
+        stream.write(data);
+    });
+    req.on('end', function () {
+        stream.end();
+        stream.destroy();
+        res.contentType('text/html');
+        res.send("file uploaded successfully");
+    });
+});
 
 app.listen(3012, function () {
     console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 });
-
